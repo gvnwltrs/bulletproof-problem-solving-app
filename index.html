@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bulletproof Problem Solving</title>
+</head>
+<body>
+    <h1>Bulletproof Problem Solving</h1>
+
+    <label for="problem">Define the problem:</label>
+    <input type="text" id="problem">
+    <br>
+
+    <label for="issues">Disaggregate the issues (comma separated):</label>
+    <input type="text" id="issues">
+    <br>
+
+    <button onclick="submitForm()">Submit</button>
+
+    <script>
+        function submitForm() {
+            let problem = document.getElementById('problem').value;
+            let issues = document.getElementById('issues').value.split(',');
+
+            // Send data to Python
+            window.pywebview.api.process_data({ 'problem': problem, 'issues': issues });
+        }
+    </script>
+</body>
+</html>
